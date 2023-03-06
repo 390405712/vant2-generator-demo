@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import TableGenerator from '@/components/Generator/TableGenerator'
+import { TableGenerator } from 'element-ui-generator'
+
 import { Message as ElMessage } from 'element-ui'
 export default {
   components: {

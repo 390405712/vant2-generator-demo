@@ -4,14 +4,12 @@
     <el-dialog :visible.sync="visible" title="弹窗表单" width="400px">
       <FormGenerator type="dialog" ref="FormGenerator" :model="form" :formOption="formOption" :rules="rules"
         @submit="submit" />
-        <!-- TODO 完善type=dialog 样式 -->
     </el-dialog>
   </div>
 </template>
 
 <script>
-import FormGenerator from '@/components/Generator/FormGenerator'
-import * as GeneratorUtils from '@/components/Generator/utils'
+import { FormGenerator, GeneratorUtils } from 'element-ui-generator'
 
 export default {
   components: {

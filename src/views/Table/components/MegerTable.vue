@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import TableGenerator from '@/components/Generator/TableGenerator'
+import { TableGenerator } from 'element-ui-generator'
+
 
 export default {
   components: {

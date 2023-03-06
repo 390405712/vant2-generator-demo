@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import FormGenerator from '@/components/Generator/FormGenerator'
+import { FormGenerator } from 'element-ui-generator'
+
 
 export default {
   components: {
