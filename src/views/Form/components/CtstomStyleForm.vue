@@ -1,9 +1,11 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit" />
+  <FormGenerator class="CustomStyleFormGenerator" ref="FormGenerator" :model="form" :formOption="formOption"
+    @submit="submit" />
 </template>
 
 <script>
-import { FormGenerator, GeneratorUtils } from 'element-ui-generator'
+import { FormGenerator } from 'element-ui-generator'
+
 
 export default {
   components: {
@@ -55,6 +57,8 @@ export default {
         formItem: {
           prop: 'delivery',
           label: 'Instant delivery',
+        },
+        control: {
         },
       },
       {
@@ -110,32 +114,47 @@ export default {
           type: 'textarea'
         }
       },
-      {
-        type: 'input',
-        formItem: {
-          prop: 'omitKey',
-          label: '非必填字段',
-        },
-      },
     ],
   }),
   methods: {
-    checkIphoneNum(
-      rule,
-      value,
-    ) {
-      if (!value) return Promise.reject('请输入手机号')
-      if (!/(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/.test(value)) {
-        return Promise.reject('手机格式有误')
-      }
-      return Promise.resolve()
-    },
     submit() {
       console.log(this.$refs.FormGenerator);
     }
   },
   created() {
-    GeneratorUtils.setRequired(this.formOption, ['omitKey'])
+    this.formOption.forEach(i => {
+      if (['form'].includes(i.formItem.prop)) {
+        i.formItem.style = 'width:100%'
+      } else {
+        i.formItem.style = 'width:calc(50% - 10px)'
+      }
+    });
   },
 }
 </script>
+<style lang="scss">
+.CustomStyleFormGenerator {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .el-form-item {
+    margin: 0 !important;
+
+    .el-form-item__content {
+      align-items: flex-start;
+    }
+  }
+
+
+  .btnItem {
+    width: 100%;
+
+    .el-form-item__content {
+      margin: 0 !important;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+</style>

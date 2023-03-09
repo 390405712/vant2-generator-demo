@@ -3457,10 +3457,10 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.313.tgz#ff95f01926ab748c65beb23fc55f2f178e7a24a9"
   integrity sha512-QckB9OVqr2oybjIrbMI99uF+b9+iTja5weFe0ePbqLb5BHqXOJUO1SG6kDj/1WtWPRIBr51N153AEq8m7HuIaA==
 
-element-ui-generator@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/element-ui-generator/-/element-ui-generator-1.0.7.tgz#f95eb4ebbe532304bc922efc733fd42456de3dd5"
-  integrity sha512-v9wa3vLr+ZgeiIWSNezt/GXGT4WCy7mVP0fZfn1Xy2zaZwtXEFrRKUW4bgt2eJA/axz3ftMdzTJZ0pvqMZO9yA==
+element-ui-generator@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.npmjs.org/element-ui-generator/-/element-ui-generator-1.0.14.tgz#351e621beedfc4644c950de03fd9cea86d254fb8"
+  integrity sha512-OiTfpiMx4M0p+ZrQSoQhjwGaN5IsBEjX3rc433VHyRa2eBQzTahIG2fqvPFAGcnm9jD89VPmoDna7pyaa3x1HA==
   dependencies:
     "@vue/babel-helper-vue-jsx-merge-props" "^1.4.0"
     "@vue/babel-preset-jsx" "^1.4.0"

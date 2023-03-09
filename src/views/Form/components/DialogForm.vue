@@ -2,7 +2,7 @@
   <div>
     <el-button type="primary" @click="visible = true">打开dialog</el-button>
     <el-dialog :visible.sync="visible" title="弹窗表单" width="400px">
-      <FormGenerator type="dialog" ref="FormGenerator" :model="form" :formOption="formOption" :rules="rules"
+      <FormGenerator type="dialog" ref="FormGenerator" :model="form" :formOption="formOption"
         @submit="submit" />
     </el-dialog>
   </div>
@@ -46,7 +46,6 @@ export default {
         },
       },
     ],
-    rules: {}
   }),
   methods: {
     submit() {
@@ -54,7 +53,7 @@ export default {
     }
   },
   created() {
-    this.rules = GeneratorUtils.getRules(this.formOption)
+    GeneratorUtils.setRequired(this.formOption)
   },
 }
 </script>

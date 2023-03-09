@@ -1,10 +1,12 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit" :rules="rules" />
+  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit"/>
 </template>
 
 <script>
 import { FormGenerator, GeneratorUtils } from 'element-ui-generator'
+import { RegExpMobilePhoneNunber } from 'element-ui-generator/dist/regexp'
 
+console.log(RegExpMobilePhoneNunber);
 export default {
   components: {
     FormGenerator
@@ -15,17 +17,38 @@ export default {
       {
         type: 'input',
         formItem: {
-          prop: 'phone',
+          prop: 'phone1',
           label: '手机号',
           rules: {
-            required: true,
             trigger: 'change',
             validator: vm.checkIphoneNum
           }
         },
       },
+      {
+        type: 'input',
+        formItem: {
+          prop: 'phone2',
+          label: '手机号',
+          rules: {
+            trigger: 'change',
+            validator: RegExpMobilePhoneNunber
+          }
+        },
+      },
+      {
+        type: 'input',
+        formItem: {
+          prop: 'phone3',
+          label: '手机号',
+          rules: {
+            trigger: 'change',
+            message: '自定义校验提示',
+            validator: /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
+          }
+        },
+      },
     ],
-    rules: {}
   }),
   methods: {
     checkIphoneNum(
@@ -43,7 +66,7 @@ export default {
     }
   },
   created() {
-    this.rules = GeneratorUtils.getRules(this.formOption)
+    GeneratorUtils.setRequired(this.formOption)
   },
 }
 </script>

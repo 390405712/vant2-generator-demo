@@ -1,5 +1,5 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" :rules="rules" @submit="submit" />
+  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit" />
 </template>
 
 <script>
@@ -39,7 +39,6 @@ export default {
         },
       },
     ],
-    rules: {}
   }),
   methods: {
     submit() {
@@ -47,7 +46,7 @@ export default {
     }
   },
   created() {
-    this.rules = GeneratorUtils.getRules(this.formOption)
+    GeneratorUtils.setRequired(this.formOption)
   },
 }
 </script>

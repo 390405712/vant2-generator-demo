@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit" :rules="rules" />
+    <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit"/>
     <el-button @click="addItem">新增项</el-button>
     <el-button @click="formOption.pop()">删除项</el-button>
   </div>
@@ -29,7 +29,6 @@ export default {
         },
       },
     ],
-    rules: {}
   }),
   methods: {
     checkIphoneNum(
@@ -46,22 +45,22 @@ export default {
       this.formOption.push({
         type: 'input',
         formItem: {
-          prop: `phone${formOption.value.length}`,
-          label: `手机号${formOption.value.length}`,
+          prop: `phone${this.formOption.length}`,
+          label: `手机号${this.formOption.length}`,
           rules: {
             required: true,
             trigger: 'change',
             validator: this.checkIphoneNum
           }
         },
-      },)
+      })
     },
     submit() {
       console.log(this.$refs.FormGenerator);
     }
   },
   created() {
-    this.rules = GeneratorUtils.getRules(this.formOption)
+    GeneratorUtils.setRequired(this.formOption)
   },
 }
 </script>

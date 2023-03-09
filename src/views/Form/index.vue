@@ -19,12 +19,13 @@ import PositionSizeForm from './components/PositionSizeForm.vue'
 import RuleForm from './components/RuleForm.vue'
 import SearchForm from './components/SearchForm.vue'
 import TypicalForm from './components/TypicalForm.vue'
+import CtstomStyleForm from './components/CtstomStyleForm.vue'
 
 export default {
   name:'表单',
   data() {
     return {
-      activeName: '添加/删除表单项',
+      activeName: '自定义校验表单',
       Com: {
         '典型表单': TypicalForm,
         '行内表单': InlineForm,
@@ -35,6 +36,7 @@ export default {
         '弹窗表单': DialogForm,
         '搜索表单': SearchForm,
         '自定义按钮': CustomButtonForm,
+        '自定义样式表单': CtstomStyleForm,
       },
       tabs: []
     }
