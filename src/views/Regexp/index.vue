@@ -28,13 +28,14 @@
   </div>
 </template>
 
-<script lang="ts" name="正则列表">
+<script>
+
 import { FormGenerator, GeneratorUtils } from 'element-ui-generator'
 import Regexps from 'element-ui-generator/dist/regexpToArr'
 import { Message as ElMessage } from 'element-ui'
 
 export default {
-  name: '正则列表',
+  name: 'regexp',
   components: { FormGenerator },
   data: () => ({
     form: {},

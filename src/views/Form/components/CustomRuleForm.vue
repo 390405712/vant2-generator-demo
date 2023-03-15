@@ -1,5 +1,5 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit"/>
+  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit" />
 </template>
 
 <script>

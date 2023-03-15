@@ -5,7 +5,6 @@
 <script>
 import { FormGenerator } from 'element-ui-generator'
 
-
 export default {
   components: {
     FormGenerator
