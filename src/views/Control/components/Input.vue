@@ -68,7 +68,7 @@ export default {
           label: '图标:slot',
         },
         control: {
-          slot: {
+          slots: {
             suffix: () => (<i class="el-input__icon el-icon-date"></i>),
             prefix: () => (<i class="el-input__icon el-icon-search"></i>),
           }
@@ -95,7 +95,7 @@ export default {
           label: '复合型',
         },
         control: {
-          slot: {
+          slots: {
             prepend: () => (<i class="el-input__icon el-icon-date"></i>),
             append: () => (<i class="el-input__icon el-icon-search"></i>),
           }

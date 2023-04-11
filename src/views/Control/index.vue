@@ -2,7 +2,7 @@
   <div class="container">
     <el-tabs v-model="activeName" tab-position="left">
       <el-tab-pane v-for="(item, index) in tabs" :key="index" :label="item" :name="item">
-        <component :is="Com[item]"></component>
+        <component v-if="item === activeName" :is="Com[item]"></component>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -18,7 +18,6 @@ import Checkbox from './components/Checkbox.vue'
 import DateTime from './components/DateTime.vue'
 import Switch from './components/Switch.vue'
 import Upload from './components/Upload.vue'
-import Txt from './components/Txt.vue'
 import Slot from './components/Slot.vue'
 
 export default {
@@ -36,7 +35,6 @@ export default {
         'datetime': DateTime,
         'switch': Switch,
         'upload': Upload,
-        'txt': Txt,
         'slot': Slot,
       },
       tabs: []

@@ -393,7 +393,7 @@ export default {
           },
           control: {
             options: options,
-            slot: {
+            slots: {
               default: (scope) => (
                 <div>
                   <span>{scope.data.label}</span>

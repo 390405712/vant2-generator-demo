@@ -9,7 +9,6 @@
 <script>
 import { TableGenerator } from 'element-ui-generator'
 
-
 export default {
   components: {
     TableGenerator
@@ -20,7 +19,7 @@ export default {
         prop: 'date',
         label: 'Date',
         width: '180',
-        slot: {
+        slots: {
           header: () => ('自定义标题')
         },
       }, {

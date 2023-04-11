@@ -87,14 +87,14 @@ export default {
               {
                 value: '1',
                 border: true,
-                slot: {
+                slots: {
                   default: () => (<span>插槽内容1</span>),
                 }
               },
               {
                 value: '2',
                 border: true,
-                slot: {
+                slots: {
                   default: () => (<span>插槽内容2</span>),
                 }
               },

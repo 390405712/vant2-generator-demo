@@ -41,7 +41,7 @@ export default {
         },
       },
       {
-        type: 'datetime',
+        type: 'date-time-picker',
         formItem: {
           prop: 'date',
           label: 'Activity time',

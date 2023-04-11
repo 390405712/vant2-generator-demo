@@ -23,7 +23,7 @@ export default {
         control: {
           httpRequest: vm.submitUpload,
           accept: '.jpg, .png',
-          slot: {
+          slots: {
             tip: () => <div class="el-upload__tip">文件格式：.jpg, .png</div>,
           }
         }
@@ -38,7 +38,7 @@ export default {
           showFileList: false,
           httpRequest: vm.submitUpload,
           accept: '.jpg, .png',
-          slot: {
+          slots: {
             default: () => (vm.imageUrl !== '' ? <img src={vm.imageUrl} class="avatar" /> : <i class="avatar el-icon el-icon-plus avatar-uploader-icon"></i>),
           }
         }
@@ -53,7 +53,7 @@ export default {
           listType: "picture-card",
           httpRequest: vm.submitUpload,
           accept: '.jpg, .png',
-          slot: {
+          slots: {
             default: () => (<i class="el-icon-plus"></i>),
           }
         }
@@ -80,7 +80,7 @@ export default {
           drag: true,
           httpRequest: vm.submitUpload,
           accept: '.jpg, .png',
-          slot: {
+          slots: {
             default: () => <div>
               <i class="el-icon-upload"></i>
               <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>

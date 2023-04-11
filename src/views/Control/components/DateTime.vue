@@ -14,14 +14,14 @@ export default {
     form: {},
     formOption: [
       {
-        type: 'datetime',
+        type: 'date-picker',
         formItem: {
           prop: 'key1',
           label: '日期',
         },
       },
       {
-        type: 'datetime',
+        type: 'date-picker',
         formItem: {
           prop: 'key2',
           label: '日期范围',
@@ -31,7 +31,7 @@ export default {
         },
       },
       {
-        type: 'datetime',
+        type: 'date-time-picker',
         formItem: {
           prop: 'key3',
           label: '日期时间',
@@ -41,7 +41,7 @@ export default {
         },
       },
       {
-        type: 'datetime',
+        type: 'date-time-picker',
         formItem: {
           prop: 'key4',
           label: '日期时间范围',
@@ -51,14 +51,14 @@ export default {
         },
       },
       {
-        type: 'time',
+        type: 'time-picker',
         formItem: {
           prop: 'key5',
           label: '时间',
         },
       },
       {
-        type: 'time',
+        type: 'time-picker',
         formItem: {
           prop: 'key6',
           label: '时间范围',

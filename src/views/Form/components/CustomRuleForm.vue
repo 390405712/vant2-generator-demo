@@ -4,9 +4,8 @@
 
 <script>
 import { FormGenerator, GeneratorUtils } from 'element-ui-generator'
-import { RegExpMobilePhoneNunber } from 'element-ui-generator/dist/regexp'
+import { RegExpMobilePhoneNunber } from 'common-rules'
 
-console.log(RegExpMobilePhoneNunber);
 export default {
   components: {
     FormGenerator

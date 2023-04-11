@@ -5,7 +5,6 @@
 <script>
 import { TableGenerator } from 'element-ui-generator'
 
-
 export default {
   components: {
     TableGenerator

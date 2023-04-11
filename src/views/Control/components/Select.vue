@@ -108,13 +108,13 @@ export default {
             option: [
               {
                 value: 'Option1',
-                slot: {
+                slots: {
                   default: () => (<span><i class="el-input__icon el-icon-date"></i> Option1</span>),
                 }
               },
               {
                 value: 'Option2',
-                slot: {
+                slots: {
                   default: () => (<span><i class="el-input__icon el-icon-search"></i> Option2</span>),
                 }
               },

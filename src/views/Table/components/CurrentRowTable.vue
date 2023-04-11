@@ -5,7 +5,6 @@
 
 <script>
 import { TableGenerator } from 'element-ui-generator'
-
 import { Message as ElMessage } from 'element-ui'
 
 export default {

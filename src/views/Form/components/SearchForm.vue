@@ -47,7 +47,7 @@ export default {
         },
       },
       {
-        type: 'datetime',
+        type: 'date-picker',
         formItem: {
           prop: 'key4',
           label: '日期',

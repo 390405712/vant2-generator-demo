@@ -5,7 +5,6 @@
 <script>
 import { TableGenerator } from 'element-ui-generator'
 
-
 export default {
   components: {
     TableGenerator
@@ -15,7 +14,7 @@ export default {
       {
         type: "expand",
         label: '',
-        slot: {
+        slots: {
           default: () => ('展开内容')
         },
       },
