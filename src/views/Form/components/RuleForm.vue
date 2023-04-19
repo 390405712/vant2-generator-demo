@@ -1,10 +1,6 @@
 <template>
-  <div>
-    <div class="phone">
-      <FormGenerator :model="form" :formOption="formOption" @submit="submit" />
-    </div>
-    <JsonViewer :value="form" expand previewMode />
-    <JsonViewer :value="formOption" expand previewMode />
+  <div class="phone">
+    <FormGenerator :model="form" :formOption="formOption" @submit="submit" />
   </div>
 </template>
 

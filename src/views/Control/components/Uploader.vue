@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div class="phone">
-      <FormGenerator :model="form" :formOption="formOption" />
-    </div>
-    <JsonViewer :value="form" expand previewMode />
+  <div class="phone">
+    <FormGenerator :model="form" :formOption="formOption" />
   </div>
 </template>
 
@@ -214,7 +211,7 @@ export default {
         },
         control: {
           slots: {
-            default: ()=>'自定义上传区域',
+            default: () => '自定义上传区域',
             'preview-cover': () => '内容',
           }
         }

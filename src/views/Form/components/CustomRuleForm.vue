@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <div class="phone">
-      <FormGenerator :model="form" :formOption="formOption" @submit="submit">
-        <template>
-          <Button block type="primary" native-type="submit">提交</Button>
-        </template>
-      </FormGenerator>
-    </div>
-    <JsonViewer :value="form" expand previewMode />
-    <JsonViewer :value="formOption" expand previewMode />
+  <div class="phone">
+    <FormGenerator :model="form" :formOption="formOption" @submit="submit">
+      <template>
+        <Button block type="primary" native-type="submit">提交</Button>
+      </template>
+    </FormGenerator>
   </div>
 </template>
 

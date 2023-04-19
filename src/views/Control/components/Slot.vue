@@ -1,16 +1,13 @@
 <template>
-  <div>
-    <div class="phone">
-      <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption">
-        <template #key2="scope">
-          {{ scope }}
-        </template>
-        <template #key4="scope">
-          <Rate v-model="form.key4" />
-        </template>
-      </FormGenerator>
-    </div>
-    <JsonViewer :value="form" expand previewMode />
+  <div class="phone">
+    <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption">
+      <template #key2="scope">
+        {{ scope }}
+      </template>
+      <template #key4="scope">
+        <Rate v-model="form.key4" />
+      </template>
+    </FormGenerator>
   </div>
 </template>
 

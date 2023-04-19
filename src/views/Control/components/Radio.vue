@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div class="phone">
-      <FormGenerator :model="form" :formOption="formOption" />
-    </div>
-    <JsonViewer :value="form" expand previewMode />
+  <div class="phone">
+    <FormGenerator :model="form" :formOption="formOption" />
   </div>
 </template>
 
@@ -165,55 +162,55 @@ export default {
             ],
           }
         },
-            {
-              type: 'radio',
-              formItem: {
-                name: 'key8',
-                label: '监听',
+        {
+          type: 'radio',
+          formItem: {
+            name: 'key8',
+            label: '监听',
+          },
+          control: {
+            radioGroup: [
+              {
+                label: '选项1',
+                value: '1',
+                onClick: (event) => { console.log(`Radio onClick:选项1${event}`) }
               },
-              control: {
-                radioGroup: [
-                  {
-                    label: '选项1',
-                    value: '1',
-                    onClick: (event) => { console.log(`Radio onClick:选项1${event}`) }
-                  },
-                  {
-                    label: '选项2',
-                    value: '2',
-                    onClick: (event) => { console.log(`Radio onClick:选项2${event}`) }
-                  },
-                ],
-                onChange: (value) => { console.log(`RadioGroup onChange:${value}`) }
-              }
-            },
-            {
-              type: 'radio',
-              formItem: {
-                name: 'key9',
-                label: '自定义插槽',
+              {
+                label: '选项2',
+                value: '2',
+                onClick: (event) => { console.log(`Radio onClick:选项2${event}`) }
               },
-              control: {
-                radioGroup: [
-                  {
-                    label: '选项1',
-                    value: '1',
-                    slots: {
-                      default: () => '文本1',
-                      icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
-                    }
-                  },
-                  {
-                    label: '选项2',
-                    value: '2',
-                    slots: {
-                      default: () => '文本2',
-                      icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
-                    }
-                  },
-                ],
-              }
-            },
+            ],
+            onChange: (value) => { console.log(`RadioGroup onChange:${value}`) }
+          }
+        },
+        {
+          type: 'radio',
+          formItem: {
+            name: 'key9',
+            label: '自定义插槽',
+          },
+          control: {
+            radioGroup: [
+              {
+                label: '选项1',
+                value: '1',
+                slots: {
+                  default: () => '文本1',
+                  icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
+                }
+              },
+              {
+                label: '选项2',
+                value: '2',
+                slots: {
+                  default: () => '文本2',
+                  icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
+                }
+              },
+            ],
+          }
+        },
       ],
     }
   },
