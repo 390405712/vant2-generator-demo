@@ -1,53 +1,60 @@
 <template>
-  <div class="container">
-    <el-tabs v-model="activeName" tab-position="left">
-      <el-tab-pane v-for="(item, index) in tabs" :key="index" :label="item" :name="item">
-        <component v-if="item === activeName" :is="Com[item]"></component>
-      </el-tab-pane>
-    </el-tabs>
+  <div>
+    <Cell is-link :title="activeName" @click="show = true" />
+    <ActionSheet position="top" v-model="show" :actions="tabs" @select="onSelect" close-on-click-action />
+    <component :is="Com[activeName]"></component>
   </div>
 </template>
 
 <script>
-import Input from './components/Input.vue'
-import InputNumber from './components/InputNumber.vue'
-import Select from './components/Select.vue'
+import { Cell, ActionSheet } from 'vant'
+
+import Field from './components/Field.vue'
+import Stepper from './components/Stepper.vue'
+import Picker from './components/Picker.vue'
 import Cascader from './components/Cascader.vue'
+import Calendar from './components/Calendar.vue'
 import Radio from './components/Radio.vue'
 import Checkbox from './components/Checkbox.vue'
-import DateTime from './components/DateTime.vue'
+import DatetimePicker from './components/DatetimePicker.vue'
 import Switch from './components/Switch.vue'
-import Upload from './components/Upload.vue'
+import Uploader from './components/Uploader.vue'
 import Slot from './components/Slot.vue'
 
 export default {
-  name:'控件',
+  name: 'Control',
+  components: { Cell, ActionSheet },
   data() {
     return {
-      activeName: 'input',
+      show: false,
+      activeName: '自定义插槽',
       Com: {
-        'input': Input,
-        'input-number': InputNumber,
-        'select': Select,
-        'cascader': Cascader,
-        'radio': Radio,
-        'checkbox': Checkbox,
-        'datetime': DateTime,
-        'switch': Switch,
-        'upload': Upload,
-        'slot': Slot,
+        '输入框': Field,
+        '步进器': Stepper,
+        '选择器': Picker,
+        '单选框': Radio,
+        '复选框': Checkbox,
+        '开关': Switch,
+        '时间选择': DatetimePicker,
+        '日历': Calendar,
+        '级联选择': Cascader,
+        '文件上传': Uploader,
+        '自定义插槽': Slot,
       },
       tabs: []
     }
   },
+  methods: {
+    onSelect(item) {
+      this.activeName = item.name
+      this.show = false
+    }
+  },
   mounted() {
-    this.tabs = Object.keys(this.Com)
+    this.tabs = Object.keys(this.Com).reduce((acc, cur) => {
+      acc.push({ name: cur })
+      return acc
+    }, [])
   }
 }
 </script>
-<style lang="scss" scoped>
-.container {
-  padding: 20px;
-  box-sizing: border-box;
-}
-</style>

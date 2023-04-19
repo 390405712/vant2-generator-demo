@@ -1,71 +1,78 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" @submit="submit" />
+  <div>
+    <div class="phone">
+      <FormGenerator :model="form" :formOption="formOption" @submit="submit">
+        <template>
+          <Button block type="primary" native-type="submit">提交</Button>
+        </template>
+      </FormGenerator>
+    </div>
+    <JsonViewer :value="form" expand previewMode />
+    <JsonViewer :value="formOption" expand previewMode />
+  </div>
 </template>
 
 <script>
-import { FormGenerator, GeneratorUtils } from 'element-ui-generator'
+import { FormGenerator, GeneratorUtils } from 'vant2-generator'
+import { Button } from 'vant';
 import { RegExpMobilePhoneNunber } from 'common-rules'
 
 export default {
   components: {
-    FormGenerator
+    FormGenerator, Button
   },
-  data: (vm) => ({
+  data: () => ({
     form: {},
     formOption: [
       {
-        type: 'input',
+        type: 'field',
         formItem: {
-          prop: 'phone1',
+          name: 'phone1',
           label: '手机号',
-          rules: {
-            trigger: 'change',
-            validator: vm.checkIphoneNum
-          }
+          rules: [{
+            trigger: 'onChange',
+            validator: (val) =>
+              new Promise((resolve) => {
+                resolve(RegExpMobilePhoneNunber.test(val));
+              })
+          }]
         },
       },
       {
-        type: 'input',
+        type: 'field',
         formItem: {
-          prop: 'phone2',
+          name: 'phone2',
           label: '手机号',
-          rules: {
-            trigger: 'change',
-            validator: RegExpMobilePhoneNunber
-          }
+          rules: [{
+            trigger: 'onChange',
+            pattern: RegExpMobilePhoneNunber
+          }]
         },
       },
       {
-        type: 'input',
+        type: 'field',
         formItem: {
-          prop: 'phone3',
+          name: 'phone3',
           label: '手机号',
-          rules: {
-            trigger: 'change',
+          rules: [{
+            trigger: 'onChange',
             message: '自定义校验提示',
-            validator: /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
-          }
+            pattern: /^(?:(?:\+|00)86)?1[3-9]\d{9}$/
+          }]
         },
       },
     ],
   }),
+  created() {
+    GeneratorUtils.setRequired(this.formOption)
+    this.formOption.forEach(item => {
+      item.popup = { getContainer: '.FormGenerator' }
+    })
+  },
   methods: {
-    checkIphoneNum(
-      rule,
-      value,
-    ) {
-      if (!value) return Promise.reject('请输入手机号')
-      if (!/(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/.test(value)) {
-        return Promise.reject('手机格式有误')
-      }
-      return Promise.resolve()
-    },
     submit() {
       console.log(this.$refs.FormGenerator);
     }
-  },
-  created() {
-    GeneratorUtils.setRequired(this.formOption)
   },
 }
 </script>

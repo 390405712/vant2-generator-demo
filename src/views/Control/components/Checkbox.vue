@@ -1,111 +1,290 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" />
+  <div>
+    <div class="phone">
+      <FormGenerator ref="RefFormGenerator" :model="form" :formOption="formOption" />
+    </div>
+    <JsonViewer :value="form" expand previewMode />
+  </div>
 </template>
 
 <script>
-import { FormGenerator } from 'element-ui-generator'
+import { FormGenerator } from 'vant2-generator'
+import { Button } from 'vant'
 
 
 export default {
   components: {
     FormGenerator
   },
-  data: () => {
-    const staticOption = [
-      {
-        label: '复选框选项1',
-        value: '1'
-      },
-      {
-        label: '复选框选项2',
-        value: '2'
-      },
-    ]
+  data: (vm) => {
     return {
       form: {
-        key1:[],
-        key2:[],
-        key3:[],
-        key4:[],
-        key5:[],
+        key1: [],
+        key2: [],
+        key3: [],
+        key4: [],
+        key5: [],
       },
       formOption: [
         {
           type: 'checkbox',
           formItem: {
-            prop: 'key1',
+            name: 'key1',
             label: '基础用法',
           },
           control: {
-            option: staticOption
-          },
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1'
+              },
+              {
+                label: '选项2',
+                value: '2'
+              },
+            ]
+          }
         },
         {
           type: 'checkbox',
           formItem: {
-            prop: 'key2',
+            name: 'key2',
             label: '禁用状态',
           },
           control: {
             disabled: true,
-            option: staticOption
-          },
-        },
-        {
-          type: 'checkbox-button',
-          formItem: {
-            prop: 'key3',
-            label: '按钮样式',
-          },
-          control: {
-            option: staticOption
-          },
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1'
+              },
+              {
+                label: '选项2',
+                value: '2'
+              },
+            ]
+          }
         },
         {
           type: 'checkbox',
           formItem: {
-            prop: 'key4',
-            label: '带有边框',
+            name: 'key3',
+            label: '自定义形状',
           },
           control: {
-            option: [
+            checkboxGroup: [
               {
-                label: '复选框选项1',
-                value: '1',
-                border: true,
+                shape: 'square',
+                label: '选项1',
+                value: '1'
               },
               {
-                label: '复选框选项2',
-                value: '2',
-                border: true,
+                shape: 'square',
+                label: '选项2',
+                value: '2'
               },
             ]
-          },
+          }
         },
         {
           type: 'checkbox',
           formItem: {
-            prop: 'key5',
-            label: '插槽内容',
+            name: 'key4',
+            label: '自定义颜色',
           },
           control: {
-            option: [
+            checkedColor: "#ee0a24",
+            checkboxGroup: [
               {
-                value: '1',
-                border: true,
-                slots: {
-                  default: () => (<span>插槽内容1</span>),
-                }
+                label: '选项1',
+                value: '1'
               },
               {
-                value: '2',
-                border: true,
-                slots: {
-                  default: () => (<span>插槽内容2</span>),
-                }
+                label: '选项2',
+                value: '2'
               },
             ]
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key5',
+            label: '自定义大小',
           },
+          control: {
+            iconSize: '24px',
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1'
+              },
+              {
+                label: '选项2',
+                value: '2'
+              },
+            ]
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key6',
+            label: '自定义图标',
+          },
+          control: {
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1',
+                slots: {
+                  icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
+                }
+              },
+              {
+                label: '选项2',
+                value: '2',
+                slots: {
+                  icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
+                }
+              },
+            ],
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key7',
+            label: '禁用文本点击',
+          },
+          control: {
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1',
+                labelDisabled: true,
+              },
+              {
+                label: '选项2',
+                value: '2',
+                labelDisabled: true,
+              },
+            ],
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key8',
+            label: '限制最大可选数',
+          },
+          control: {
+            max: 2,
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1',
+              },
+              {
+                label: '选项2',
+                value: '2',
+              },
+              {
+                label: '选项3',
+                value: '3',
+              },
+            ],
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key9',
+            label: '全选与反选',
+          },
+          control: {
+            max: 2,
+            checkboxGroup: [
+              {
+                modelValue: '1',
+                label: '选项1',
+                value: '1',
+              },
+              {
+                label: '选项2',
+                value: '2',
+              },
+            ],
+          }
+        },
+        {
+          type: 'slot',
+          formItem: {
+            name: 'key10',
+          },
+          control: {
+            slots: {
+              // 会无视template中key10的插槽内容
+              input: () => (<div>
+                <Button type="primary" onClick={() => { console.log(vm); vm.$refs.RefFormGenerator.$refs.key9.toggleAll(true) }}>全选</Button>
+                <Button type="primary" onClick={() => { console.log(vm); vm.$refs.RefFormGenerator.$refs.key9.toggleAll() }}>反选</Button>
+              </div>
+              ),
+            }
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key11',
+            label: '监听',
+          },
+          control: {
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1',
+                //因v-model在checkboxGroup层，所以checkbox不支持onChange
+                // onChange: (checked: boolean) => { console.log(`Checkbox onChange:选项1${checked}`)},
+                onClick: (event) => { console.log(`Checkbox onClick:选项1${event}`) }
+              },
+              {
+                label: '选项2',
+                value: '2',
+                //因v-model在checkboxGroup层，所以checkbox不支持onChange
+                // onChange: (checked: boolean) => { console.log(`Checkbox onChange:选项2${checked}`)},
+                onClick: (event) => { console.log(`Checkbox onClick:选项2${event}`) }
+              },
+            ],
+            onChange: (value) => { console.log(`checkboxGroup onChange:${JSON.stringify(value)}`) }
+          }
+        },
+        {
+          type: 'checkbox',
+          formItem: {
+            name: 'key12',
+            label: '自定义插槽',
+          },
+          control: {
+            checkboxGroup: [
+              {
+                label: '选项1',
+                value: '1',
+                slots: {
+                  default: () => '文本1',
+                  icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
+                }
+              },
+              {
+                label: '选项2',
+                value: '2',
+                slots: {
+                  default: () => '文本2',
+                  icon: (props) => <img style="height: 20px;" src={props.checked ? 'https://fastly.jsdelivr.net/npm/@vant/assets/user-active.png' : 'https://fastly.jsdelivr.net/npm/@vant/assets/user-inactive.png'} />
+                }
+              },
+            ],
+          }
         },
       ],
     }

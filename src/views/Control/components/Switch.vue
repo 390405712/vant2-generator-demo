@@ -1,66 +1,114 @@
 <template>
-  <FormGenerator ref="FormGenerator" :model="form" :formOption="formOption" />
+  <div>
+    <div class="phone">
+      <FormGenerator :model="form" :formOption="formOption" />
+    </div>
+    <JsonViewer :value="form" expand previewMode />
+  </div>
 </template>
 
 <script>
-import { FormGenerator } from 'element-ui-generator'
-
+import { FormGenerator } from 'vant2-generator'
+import { Icon, Dialog } from 'vant'
 
 export default {
   components: {
     FormGenerator
   },
-  data: () => ({
-    form: {},
+  data: (vm) => ({
+    form: {
+      key5: false
+    },
     formOption: [
       {
         type: 'switch',
         formItem: {
-          prop: 'key1',
+          name: 'key1',
           label: '基础用法',
         },
       },
       {
         type: 'switch',
         formItem: {
-          prop: 'key2',
-          label: '文字描述',
-        },
-        control: {
-          activeText: "Pay by month",
-          inactiveText: "Pay by year"
-        }
-      },
-      {
-        type: 'switch',
-        formItem: {
-          prop: 'key3',
-          label: '显示自定义图标',
-        },
-        control: {
-          activeIconClass: 'el-icon-date',
-          inactiveIconClass: 'el-icon-search'
-        }
-      },
-      {
-        type: 'switch',
-        formItem: {
-          prop: 'key4',
-          label: '扩展的value类型',
-        },
-        control: {
-          activeValue: "100",
-          inactiveValue: "0"
-        }
-      },
-      {
-        type: 'switch',
-        formItem: {
-          prop: 'key5',
+          name: 'key2',
           label: '禁用状态',
         },
         control: {
           disabled: true
+        }
+      },
+      {
+        type: 'switch',
+        formItem: {
+          name: 'key3',
+          label: '加载状态',
+        },
+        control: {
+          loading: true
+        }
+      },
+      {
+        type: 'switch',
+        formItem: {
+          name: 'key4',
+          label: '自定义大小',
+        },
+        control: {
+          size: '24px'
+        }
+      },
+      {
+        type: 'switch',
+        formItem: {
+          name: 'key5',
+          label: '自定义颜色',
+        },
+        control: {
+          activeColor: '#ee0a24',
+          inactiveColor: '#dcdee0',
+        }
+      },
+      {
+        type: 'switch',
+        formItem: {
+          name: 'key6',
+          label: '自定义按钮',
+        },
+        control: {
+          slots: {
+            node: () => (<div class="icon-wrapper">
+              <Icon name={vm.form.key5 ? 'success' : 'cross'} />
+            </div>)
+          }
+        }
+      },
+      {
+        type: 'switch',
+        formItem: {
+          name: 'key7',
+          label: '异步控制',
+        },
+        control: {
+          onInput: (checked) => {
+            vm.form.key7 = !checked;
+            Dialog.confirm({
+              title: '提醒',
+              message: '是否切换开关？',
+            }).then(() => {
+              vm.form.key7 = checked;
+            });
+          },
+        }
+      },
+      {
+        type: 'switch',
+        formItem: {
+          name: 'key8',
+          label: '监听',
+        },
+        control: {
+          onChange: (value) => { console.log(`onChange:${value}`); },
+          onClick: (event) => { console.log(`onClick:${event}`); },
         }
       },
     ],
@@ -68,3 +116,22 @@ export default {
 }
 
 </script>
+
+<style lang="scss" scoped>
+:deep(.icon-wrapper) {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-size: 18px;
+
+  .van-icon-success {
+    line-height: 32px;
+    color: var(--van-blue);
+  }
+
+  .van-icon-cross {
+    line-height: 32px;
+    color: var(--van-gray-5);
+  }
+}
+</style>
