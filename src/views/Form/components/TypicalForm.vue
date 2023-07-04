@@ -14,8 +14,20 @@ export default {
   },
   data: (vm) => ({
     form: {
-      key2: 1,
-      key11: 0
+      "key2": 1,
+      "key11": 0,
+      "key1": "1",
+      "key3": "320000",
+      "key4": "2",
+      "key5": [
+        "2"
+      ],
+      "key6": true,
+      "key7": "2020-01-01",
+      "key8": "2023-7-5",
+      "key9": "320100",
+      "key11": 3,
+      "key12": 50,
     },
     formOption: [
       {

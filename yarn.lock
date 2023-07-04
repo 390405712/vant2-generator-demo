@@ -8481,10 +8481,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vant2-generator@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/vant2-generator/-/vant2-generator-1.0.3.tgz#4fbb2e5fff69e6e4eaa63d4aad6e0fee61935438"
-  integrity sha512-n3MPzc53yGY7o167NSdpiGxnv9FJWqcC9EcYOQqqdHpI4ee7Qs9E3Pimvqde4NhWKH6jUpLEo6ufx8yZ02o2pQ==
+vant2-generator@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/vant2-generator/-/vant2-generator-1.0.5.tgz#3c8fcfc33c605e2ae2725ca0602ec8fdb5aae737"
+  integrity sha512-qXAiZJO4oA2bglF8cIImzojXXu7xFaeCV0T+FipXl7S/9OkzMMRXJ7SUFDgQgGw0N/xvqpcz7JIud9knn3SOJg==
 
 vant@^2.12.54:
   version "2.12.54"

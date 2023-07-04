@@ -101,27 +101,6 @@ export default {
           type: 'picker',
           formItem: {
             name: 'key4',
-            label: '级联选择',
-          },
-          control: {
-            columns: [
-              {
-                text: '浙江省',
-                value: '330000',
-                children: [{ text: '杭州市', value: '330100' }],
-              },
-              {
-                text: '江苏省',
-                value: '320000',
-                children: [{ text: '南京市', value: '320100' }],
-              },
-            ],
-          },
-        },
-        {
-          type: 'picker',
-          formItem: {
-            name: 'key5',
             label: '禁用选项',
           },
           control: {
@@ -141,7 +120,7 @@ export default {
         {
           type: 'picker',
           formItem: {
-            name: 'key6',
+            name: 'key5',
             label: '动态设置选项',
           },
           control: {
@@ -157,7 +136,7 @@ export default {
         {
           type: 'picker',
           formItem: {
-            name: 'key7',
+            name: 'key6',
             label: '加载状态',
           },
           control: {
@@ -168,7 +147,7 @@ export default {
         {
           type: 'picker',
           formItem: {
-            name: 'key8',
+            name: 'key7',
             label: '监听',
           },
           control: {
@@ -187,7 +166,7 @@ export default {
         {
           type: 'picker',
           formItem: {
-            name: 'key9',
+            name: 'key8',
             label: '自定义插槽',
           },
           control: {
